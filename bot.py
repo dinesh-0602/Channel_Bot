@@ -273,9 +273,7 @@ async def auth_(event):
     t = await db.get("CHAT_SETTINGS") or "{}"
     t = eval(t)
     await xx.edit(
-        "**ChannelActionsBot Stats**\n\nUsers: {}\nGroups added (with modified settings): {}".format(
-            len(await get_all("BOTUSERS")), len(t.keys())
-        )
+        f'**ChannelActionsBot Stats**\n\nUsers: {len(await get_all("BOTUSERS"))}\nGroups added (with modified settings): {len(t.keys())}'
     )
 
 
@@ -301,7 +299,7 @@ async def broad(e):
             done += 1
         except Exception:
             error += 1
-    await xx.edit("Broadcast completed.\nSuccess: {}\nFailed: {}".format(done, error))
+    await xx.edit(f"Broadcast completed.\nSuccess: {done}\nFailed: {error}")
 
 
 log.info("Started Bot - %s", bot_username)
